@@ -15,8 +15,9 @@ module.exports = {
   themeConfig: {
     navbar: {
       title: 'GregTech Experimental',
+      hideOnScroll: true,
       logo: {
-        alt: 'My Site Logo',
+        alt: 'GregTech Gear',
         src: 'img/logo.png',
       },
       items: [
@@ -61,6 +62,7 @@ module.exports = {
     prism: {
       theme: lightCodeTheme,
       darkTheme: darkCodeTheme,
+      additionalLanguages: ['java']
     },
   },
   presets: [
