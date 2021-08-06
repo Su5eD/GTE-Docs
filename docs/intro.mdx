@@ -5,4 +5,19 @@ slug: /
 
 # Introduction
 
-![Gregoriette](https://gregtech.overminddl1.com/greg/gregoriette.png)
+import { Crafting, CraftingSlot } from "../src/components/Crafting"
+import CraftingItem from "../src/components/CraftingItem";
+
+<Crafting output={CraftingItem.INDUSTRIAL_BLAST_FURNACE}>
+    <CraftingSlot oreDict='circuitBasic' ingredient={CraftingItem.ELECTRONIC_CIRCUIT} row='1' col='1'/>
+    <CraftingSlot oreDict='circuitBasic' ingredient={CraftingItem.ELECTRONIC_CIRCUIT} row='1' col='3'/>
+    <CraftingSlot oreDict='craftingHeatingCoilTier00' ingredient={CraftingItem.CUPRONICKEL_HEATING_COIL} row='1' col='2'/>
+    <CraftingSlot oreDict='craftingHeatingCoilTier00' ingredient={CraftingItem.CUPRONICKEL_HEATING_COIL} row='2' col='1'/>
+    <CraftingSlot oreDict='craftingHeatingCoilTier00' ingredient={CraftingItem.CUPRONICKEL_HEATING_COIL} row='2' col='3'/>
+    <CraftingSlot oreDict='craftingHeatingCoilTier00' ingredient={CraftingItem.CUPRONICKEL_HEATING_COIL} row='3' col='2'/>
+    <CraftingSlot oreDict='craftingRawMachineTier02' ingredient={CraftingItem.STEEL_MACHINE_HULL} row='2' col='2'/>
+    <CraftingSlot oreDict='craftingInductionFurnace' ingredient={CraftingItem.INDUCTION_FURNACE} row='3' col='1'/>
+    <CraftingSlot oreDict='craftingInductionFurnace' ingredient={CraftingItem.INDUCTION_FURNACE} row='3' col='3'/>
+</Crafting>
+
+Crafting Test Placeholder

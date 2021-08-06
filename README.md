@@ -2,6 +2,11 @@
 
 This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
 
+## Assets
+All used assets belong to their respective copyright owners.
+- [IC2 License](https://forum.industrial-craft.net/thread/9843-mc-1-7-ic%C2%B2-v-2-1-x-2-2-x-experimental/)
+- [GTE License](https://github.com/Su5eD/GregTech-Experimental#licensing)
+
 ## Installation
 
 ```console
