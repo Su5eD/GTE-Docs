@@ -1,13 +1,14 @@
 import React from "react";
 
-export const Highlight = ({ children, color }) => (
-    <span
+export const Rectangle = ({ children, size, color }) => (
+    <div
       style={{
+        width: size,
+        height: size,
         backgroundColor: color,
         borderRadius: "2px",
-        color: "#fff",
         padding: "0.2rem"
       }}>
       {children}
-    </span>
+    </div>
 );

@@ -1,0 +1,163 @@
+---
+sidebar_position: 2
+---
+
+import { Crafting, CraftingSlot, CraftingSlotMulti } from "@site/src/components/Crafting"
+import CraftingItem from "@site/src/components/CraftingItem";
+
+# Upgrades
+
+## About
+
+Most GregTech machines are upgradable.
+Accepted upgrades are listed in the tooltip, labelled by the first letter of each upgrade. Not every machine can accept every upgrade.
+
+| Label | Upgrade |
+|:----:|:----:|
+| O | Overclocker |
+| T | Transformer |
+| B | Battery (Energy Storage) |
+| M | MJ (Pneumatic Generator) |
+| S | Steam (Steam Engine) |
+
+Upgrades can be applied by right clicking a machines with the upgrade item equipped. Machines accept up to 16 upgrades in total.
+The default stack size of all upgrades is 4, and can be configured in `features/upgradeStackSize`.
+Upgrades can be crafted either in a crafting table or an Assembling Machine, depending on their type.
+
+:::tip
+
+The Portable Scanner can also be used to view the installed upgrades of a machine.
+
+:::
+
+## Upgrade Types
+
+export const RecipeEnergyStorage = () => (
+    <Crafting output={CraftingItem.ENERGY_STORAGE_UPGRADE}>
+        <CraftingSlot ingredient={CraftingItem.WOOD_PLANKS} row='1' col='1'/>
+        <CraftingSlot ingredient={CraftingItem.WOOD_PLANKS} row='1' col='2'/>
+        <CraftingSlot ingredient={CraftingItem.WOOD_PLANKS} row='1' col='3'/>
+        <CraftingSlot ingredient={CraftingItem.INSULATED_COPPER_CABLE} row='2' col='1'/>
+        <CraftingSlot ingredient={CraftingItem.RE_BATTERY} row='2' col='2'/>
+        <CraftingSlot ingredient={CraftingItem.INSULATED_COPPER_CABLE} row='2' col='3'/>
+        <CraftingSlot ingredient={CraftingItem.WOOD_PLANKS} row='3' col='1'/>
+        <CraftingSlot ingredient={CraftingItem.ELECTRONIC_CIRCUIT} row='3' col='2'/>
+        <CraftingSlot ingredient={CraftingItem.WOOD_PLANKS} row='3' col='3'/>
+    </Crafting>
+);
+
+### Energy Storage Upgrades
+| Type | Energy Storage Increase | Required Tier | Recipe Materials | Assembler |
+|:----:|:----:|:----:|:----:|:----:|
+| Energy Storage* | 10k EU | 1 | <RecipeEnergyStorage/> | No |
+| Energy Crystal | 1M EU | 3 | 1x Energy Crystal, 1x Iron/Aluminium Plate | Yes |
+| Lithium Battery | 100k EU | 1 | 1x Lithium Battery, 1x Iron/Aluminium Plate | Yes |
+| Lapotron Crystal | 10M EU | 4 | 1x Lapotron Crystal, 1x Iron/Aluminium Plate | Yes |
+| Energy Orb | 100M EU | 5 | 1x Energy Orb, 1x Iron/Aluminium Plate | Yes |
+| Redstone Energy Cell | 100k MJ | 1 | 4x Redstone Chipset (BuildCraft), 1x Energy Storage Upgrade -> 4x upgrades | Yes |
+| Steam Tank | 64 Buckets | 1 | 2x Steel plate, 1x Glass pane | Yes |
+
+*Vanilla IC2 Upgrade
+
+There is no limit on how many of each individual energy storage upgrade can be installed to a machine (except for the 16 upgrade total cap).
+Different stored Energies (EU/MJ/Steam) cannot be inter-converted, and machines will only output EU.
+Consuming MJ or Steam is prioritized before consuming EU.
+
+### Other Upgrades
+
+export const OverclockerRecipe = () => (
+    <Crafting output={CraftingItem.OVERCLOCKER_UPGRADE}>
+        <CraftingSlot ingredient={CraftingItem.COOLANT_CELL_10K} row='1' col='1'/>
+        <CraftingSlot ingredient={CraftingItem.COOLANT_CELL_10K} row='1' col='2'/>
+        <CraftingSlot ingredient={CraftingItem.COOLANT_CELL_10K} row='1' col='3'/>
+        <CraftingSlot ingredient={CraftingItem.INSULATED_COPPER_CABLE} row='2' col='1'/>
+        <CraftingSlot ingredient={CraftingItem.ELECTRONIC_CIRCUIT} row='2' col='2'/>
+        <CraftingSlot ingredient={CraftingItem.INSULATED_COPPER_CABLE} row='2' col='3'/>
+    </Crafting>
+);
+
+export const OverclockerRecipeGT = () => (
+    <Crafting output={CraftingItem.OVERCLOCKER_UPGRADE} count='2'>
+        <CraftingSlotMulti ingredients={[CraftingItem.HELIUM_COOLANT_CELL_60K, CraftingItem.NAK_COOLANT_CELL_60K]} row='1' col='2'/>
+        <CraftingSlot ingredient={CraftingItem.INSULATED_COPPER_CABLE} row='2' col='1'/>
+        <CraftingSlot ingredient={CraftingItem.ELECTRONIC_CIRCUIT} row='2' col='2'/>
+        <CraftingSlot ingredient={CraftingItem.INSULATED_COPPER_CABLE} row='2' col='3'/>
+    </Crafting>
+);
+
+export const TransformerRecipe = () => (
+    <Crafting output={CraftingItem.TRANSFORMER_UPGRADE}>
+        <CraftingSlot ingredient={CraftingItem.GLASS} row='1' col='1'/>
+        <CraftingSlot ingredient={CraftingItem.GLASS} row='1' col='2'/>
+        <CraftingSlot ingredient={CraftingItem.GLASS} row='1' col='3'/>
+        <CraftingSlot ingredient={CraftingItem.DOUBLE_INSULATED_GOLD_CABLE} row='2' col='1'/>
+        <CraftingSlot ingredient={CraftingItem.MV_TRANSFORMER} row='2' col='2'/>
+        <CraftingSlot ingredient={CraftingItem.DOUBLE_INSULATED_GOLD_CABLE} row='2' col='3'/>
+        <CraftingSlot ingredient={CraftingItem.GLASS} row='3' col='1'/>
+        <CraftingSlot ingredient={CraftingItem.ELECTRONIC_CIRCUIT} row='3' col='2'/>
+        <CraftingSlot ingredient={CraftingItem.GLASS} row='3' col='3'/>
+    </Crafting>
+);
+
+| Type | Effect | Max Count | Recipe | Assembler |
+|:----:|:----:|:----:|:----:|:----:|
+| Overclocker* | Operation time x1/2, total EU usage x2, EU/t required to operate x4  | 4 | <OverclockerRecipe/> <OverclockerRecipeGT/> | No |
+| Transformer* | Maximum EU/p in x4, EU/t out x4, Packets out 4. Applicabble for tiers 1 - 2 | 2 (LV Machines) / 1 (MV Machines) | <TransformerRecipe/> | No |
+| HV-Transformer | Like the Transformer, but applicabble for tiers 3 - 4 | 2 | 1x HV Transformer, 1x Transformer Upgrade | Yes |
+| Pneumatic Generator | Lets the machine accept MJ at a 1:1 ratio | 1 | 1x Generator, 1x Iron/Steel Gear | Yes |
+| Steam | Lets the machine accept Steam at a 2mb -> 1 EU conversion | 1 | 1x Industrial Steam Engine (RailCraft), 2x Steel Plate | Yes |
+
+* Vanilla IC2 Upgrade
+
+:::note
+
+If a machine is overclocked too much, it may require more EU/t than its default storage capacity. 
+To compensate for this, add an Energy Storage upgrade.  
+For example: 4 Overclocker Upgrades will increase a machine's required EU/t to 256x its original value. 
+So, a 4x-overclocked MV Machine would consume 32,768EU/t.
+
+:::
+
+### Utility Upgrades
+
+export const KanthalCoilRecipe = () => (
+    <Crafting output={CraftingItem.KANTHAL_HEATING_COIL} count='3'>
+        <CraftingSlot ingredient={CraftingItem.IRON_INGOT} row='1' col='1'/>
+        <CraftingSlot ingredient={CraftingItem.IRON_INGOT} row='1' col='2'/>
+        <CraftingSlot ingredient={CraftingItem.IRON_INGOT} row='1' col='3'/>
+        <CraftingSlot ingredient={CraftingItem.CHROME_INGOT} row='2' col='1'/>
+        <CraftingSlot ingredient={CraftingItem.ALUMINIUM_INGOT} row='2' col='2'/>
+        <CraftingSlot ingredient={CraftingItem.ALUMINIUM_INGOT} row='2' col='3'/>
+        <CraftingSlot ingredient={CraftingItem.CHROME_INGOT} row='3' col='1'/>
+        <CraftingSlot ingredient={CraftingItem.CHROME_INGOT} row='3' col='2'/>
+        <CraftingSlot ingredient={CraftingItem.ALUMINIUM_INGOT} row='3' col='3'/>
+    </Crafting>
+);
+
+export const NickelCoilRecipe = () => (
+    <Crafting output={CraftingItem.NICHROME_HEATING_COIL}>
+        <CraftingSlot ingredient={CraftingItem.NICKEL_INGOT} row='1' col='2'/>
+        <CraftingSlot ingredient={CraftingItem.NICKEL_INGOT} row='2' col='1'/>
+        <CraftingSlot ingredient={CraftingItem.CHROME_INGOT} row='2' col='2'/>
+        <CraftingSlot ingredient={CraftingItem.NICKEL_INGOT} row='2' col='3'/>
+        <CraftingSlot ingredient={CraftingItem.NICKEL_INGOT} row='3' col='2'/>
+    </Crafting>
+);
+
+| Type | Effect | Recipe |
+|:----:|:----:|:----:|
+| Kanthal Heating Coil | E-Furnace: Increases efficiency by 100% <br/> (x4) Industrial Blast Furnace: Increases Heat Capacity by 500K | <KanthalCoilRecipe/> |
+| Nichrome Heating Coil | E-Furnace: Increases efficiency by 50% <br/> (x4) Industrial Blast Furnace: Increases Heat Capacity by 500K | <NickelCoilRecipe/> |
+
+:::caution
+
+Kanthal Heating Coils must be applied before Nichrome Heating Coils.
+
+:::
+
+An Automatic E-Furnace with a Kanthal Heating Coil installed will perform operations 
+in 50% of its normal time for 50% of it normal energy (200% efficiency).
+An Automatic E-Furnace with both a Kanthal and a Nichrome Heating Coil installed will 
+perform operations in 33% of their normal time for 33% of their normal energy (300% efficiency).
+
+Utility Upgrades can each be used once per machine.
