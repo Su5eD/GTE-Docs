@@ -101,7 +101,7 @@ export const TransformerRecipe = () => (
 
 | Type | Effect | Max Count | Recipe | Assembler |
 |:----:|:----:|:----:|:----:|:----:|
-| Overclocker* | Operation time x1/2, total EU usage x2, EU/t required to operate x4  | 4 | <OverclockerRecipe/> <OverclockerRecipeGT/> | No |
+| Overclocker* | Operation time x1/2, total EU usage x2, EU/t required to operate x4 | 4 | <OverclockerRecipe/> <OverclockerRecipeGT/> | No |
 | Transformer* | Maximum EU/p in x4, EU/t out x4, Packets out 4. Applicabble for tiers 1 - 2 | 2 (LV Machines) / 1 (MV Machines) | <TransformerRecipe/> | No |
 | HV-Transformer | Like the Transformer, but applicabble for tiers 3 - 4 | 2 | 1x HV Transformer, 1x Transformer Upgrade | Yes |
 | Pneumatic Generator | Lets the machine accept MJ at a 1:1 ratio | 1 | 1x Generator, 1x Iron/Steel Gear | Yes |
@@ -117,6 +117,13 @@ For example: 4 Overclocker Upgrades will increase a machine's required EU/t to 2
 So, a 4x-overclocked MV Machine would consume 32,768EU/t.
 
 :::
+
+#### Steam Converion Rates
+| Type | Steam Multiplier | EU per 1 Bucket |
+|:----:|:----:|:----:|
+| Steam | 1 | 500 |
+| IC2 Steam | 1.6 | 800 |
+| IC2 Superheated Steam | 2 | 1000 |
 
 ### Utility Upgrades
 
