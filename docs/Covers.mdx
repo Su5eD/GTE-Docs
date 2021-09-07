@@ -1,0 +1,260 @@
+---
+sidebar_position: 3
+---
+
+import { Crafting, CraftingSlot } from "@site/src/components/Crafting"
+import CraftingItem from "@site/src/components/CraftingItem";
+
+## About
+
+Covers are machine attachments that serve as utilities for acomplishing different tasks.
+They're designed to be faster & more effective than traditional methods, great for automation and saving space.
+
+Nearly all GregTech machines are coverable.
+Covers usually interact with the machine's inventory and the inventory they're facing.
+They can be configured using a Screwdriver, and removed using Crowbars.
+
+### Not everything comes at a price
+You can get a **free** cover that blocks all interactions by right-clicking a machine with a screwdriver.
+Right-click again to get one that only blocks redstone signal.
+
+## Cover Types
+
+### Utility/Automation Covers
+
+export const RecipeConveyorModule = () => (
+  <Crafting output={CraftingItem.CONVEYOR_MODULE}>
+    <CraftingSlot ingredient={CraftingItem.GLASS} row='1' col='1'/>
+    <CraftingSlot ingredient={CraftingItem.GLASS} row='1' col='2'/>
+    <CraftingSlot ingredient={CraftingItem.GLASS} row='1' col='3'/>
+    <CraftingSlot ingredient={CraftingItem.IRON_PLATE} row='2' col='1'/>
+    <CraftingSlot ingredient={CraftingItem.IRON_PLATE} row='2' col='2'/>
+    <CraftingSlot ingredient={CraftingItem.IRON_PLATE} row='2' col='3'/>
+    <CraftingSlot ingredient={CraftingItem.ELECTRONIC_CIRCUIT} row='3' col='1'/>
+    <CraftingSlot ingredient={CraftingItem.RE_BATTERY} row='3' col='2'/>
+    <CraftingSlot ingredient={CraftingItem.ELECTRONIC_CIRCUIT} row='3' col='3'/>
+  </Crafting>
+);
+
+export const RecipeComputerMonitor = () => (
+  <Crafting output={CraftingItem.COMPUTER_MONITOR}>
+    <CraftingSlot ingredient={CraftingItem.ALUMINIUM_PLATE} row='1' col='1'/>
+    <CraftingSlot ingredient={CraftingItem.LIME_DYE} row='1' col='2'/>
+    <CraftingSlot ingredient={CraftingItem.ALUMINIUM_PLATE} row='1' col='3'/>
+    <CraftingSlot ingredient={CraftingItem.ROSE_RED} row='2' col='1'/>
+    <CraftingSlot ingredient={CraftingItem.GLASS_PANE} row='2' col='2'/>
+    <CraftingSlot ingredient={CraftingItem.LAPIS_LAZULI} row='2' col='3'/>
+    <CraftingSlot ingredient={CraftingItem.ALUMINIUM_PLATE} row='3' col='1'/>
+    <CraftingSlot ingredient={CraftingItem.GLOWSTONE_DUST} row='3' col='2'/>
+    <CraftingSlot ingredient={CraftingItem.ALUMINIUM_PLATE} row='3' col='3'/>
+  </Crafting>
+);
+
+export const RecipeEnergyFlowCircuit = () => (
+  <Crafting output={CraftingItem.ENERGY_FLOW_CIRCUIT}>
+    <CraftingSlot ingredient={CraftingItem.ADVANCED_CIRCUIT} row='1' col='1'/>
+    <CraftingSlot ingredient={CraftingItem.TUNGSTEN_PLATE} row='1' col='2'/>
+    <CraftingSlot ingredient={CraftingItem.ADVANCED_CIRCUIT} row='1' col='3'/>
+    <CraftingSlot ingredient={CraftingItem.LAPOTRON_CRYSTAL} row='2' col='1'/>
+    <CraftingSlot ingredient={CraftingItem.IRIDIUM_REINFORCED_PLATE} row='2' col='2'/>
+    <CraftingSlot ingredient={CraftingItem.LAPOTRON_CRYSTAL} row='2' col='3'/>
+    <CraftingSlot ingredient={CraftingItem.ADVANCED_CIRCUIT} row='3' col='1'/>
+    <CraftingSlot ingredient={CraftingItem.TUNGSTEN_PLATE} row='3' col='2'/>
+    <CraftingSlot ingredient={CraftingItem.ADVANCED_CIRCUIT} row='3' col='3'/>
+  </Crafting>
+);
+
+export const RecipeDataControlCircuit = () => (
+  <Crafting output={CraftingItem.DATA_CONTROL_CIRCUIT}>
+    <CraftingSlot ingredient={CraftingItem.ADVANCED_CIRCUIT} row='1' col='1'/>
+    <CraftingSlot ingredient={CraftingItem.DATA_STORAGE_CIRCUIT} row='1' col='2'/>
+    <CraftingSlot ingredient={CraftingItem.ADVANCED_CIRCUIT} row='1' col='3'/>
+    <CraftingSlot ingredient={CraftingItem.DATA_STORAGE_CIRCUIT} row='2' col='1'/>
+    <CraftingSlot ingredient={CraftingItem.IRIDIUM_REINFORCED_PLATE} row='2' col='2'/>
+    <CraftingSlot ingredient={CraftingItem.DATA_STORAGE_CIRCUIT} row='2' col='3'/>
+    <CraftingSlot ingredient={CraftingItem.ADVANCED_CIRCUIT} row='3' col='1'/>
+    <CraftingSlot ingredient={CraftingItem.DATA_STORAGE_CIRCUIT} row='3' col='2'/>
+    <CraftingSlot ingredient={CraftingItem.ADVANCED_CIRCUIT} row='3' col='3'/>
+  </Crafting>
+);
+
+| Type | Effect | Recipe | Recipe Type |
+|:----:|:----:|:----:|:----:|
+| Conveyor Module | Inputs/Outputs items | <RecipeConveyorModule/> | Crafting |
+| Pump Module | Inputs/Output fluids | 1x Pump, 1x Iron/Aluminium Plate | Assembler |
+| Item Transport Valve | Works both as a Conveyor and Pump module | 1x Conveyor Module, 1x Pump module | Assembler |
+| Drains | Drains liquids in front of it / Collects rain water when placed on top | 2x Iron bars, 2x Iron/Aluminium Plate | Assembler |
+| Crafting Module | Works as a portable Workbench | 1x Crafting table, 1x Iron/Aluminium Plate | Assembler |
+| Computer Monitor | Restricts GUI access to the covered side only | <RecipeComputerMonitor/> | Crafting |
+| Energy Flow Circuit | Restricts interactions on the covered side to energy transfer only | 1x Lapotron Crystal, 1x Elite Circuit Board | Assembler |
+|      |      | <RecipeEnergyFlowCircuit/> | Crafting |
+| Data Control Circuit | Restricts interactions on the covered side to redstone signal only | 1x Data Storage Circuit, 1x Elite Circuit Board | Assembler |
+|      |      | <RecipeDataControlCircuit/> | Crafting |
+| Metal Plates | Mimics the plate's corresponding block's texture. Blocks all interactions | 1x plate's corresponding Ingot | Plate Bending Machine |
+
+### Solar Panel Covers
+
+export const RecipeSolarPanel = () => (
+  <Crafting output={CraftingItem.SOLAR_PANEL}>
+    <CraftingSlot ingredient={CraftingItem.SILICON_PLATE} row='2' col='1'/>
+    <CraftingSlot ingredient={CraftingItem.GLASS_PANE} row='2' col='2'/>
+    <CraftingSlot ingredient={CraftingItem.SILICON_PLATE} row='2' col='3'/>
+    <CraftingSlot ingredient={CraftingItem.CARBON_PLATE} row='3' col='1'/>
+    <CraftingSlot ingredient={CraftingItem.ELECTRONIC_CIRCUIT} row='3' col='2'/>
+    <CraftingSlot ingredient={CraftingItem.CARBON_PLATE} row='3' col='3'/>
+  </Crafting>
+);
+
+export const RecipeSolarPanelLV = () => (
+  <Crafting output={CraftingItem.SOLAR_PANEL_LV}>
+    <CraftingSlot ingredient={CraftingItem.SOLAR_PANEL} row='1' col='1'/>
+    <CraftingSlot ingredient={CraftingItem.SOLAR_PANEL} row='1' col='2'/>
+    <CraftingSlot ingredient={CraftingItem.SOLAR_PANEL} row='1' col='3'/>
+    <CraftingSlot ingredient={CraftingItem.SOLAR_PANEL} row='2' col='1'/>
+    <CraftingSlot ingredient={CraftingItem.ELECTRONIC_CIRCUIT} row='2' col='2'/>
+    <CraftingSlot ingredient={CraftingItem.SOLAR_PANEL} row='2' col='3'/>
+    <CraftingSlot ingredient={CraftingItem.SOLAR_PANEL} row='3' col='1'/>
+    <CraftingSlot ingredient={CraftingItem.SOLAR_PANEL} row='3' col='2'/>
+    <CraftingSlot ingredient={CraftingItem.SOLAR_PANEL} row='3' col='3'/>
+  </Crafting>
+);
+
+export const RecipeSolarPanelMV = () => (
+  <Crafting output={CraftingItem.SOLAR_PANEL_MV}>
+    <CraftingSlot ingredient={CraftingItem.SOLAR_PANEL_LV} row='1' col='1'/>
+    <CraftingSlot ingredient={CraftingItem.SOLAR_PANEL_LV} row='1' col='2'/>
+    <CraftingSlot ingredient={CraftingItem.SOLAR_PANEL_LV} row='1' col='3'/>
+    <CraftingSlot ingredient={CraftingItem.SOLAR_PANEL_LV} row='2' col='1'/>
+    <CraftingSlot ingredient={CraftingItem.TRANSFORMER_UPGRADE} row='2' col='2'/>
+    <CraftingSlot ingredient={CraftingItem.SOLAR_PANEL_LV} row='2' col='3'/>
+    <CraftingSlot ingredient={CraftingItem.SOLAR_PANEL_LV} row='3' col='1'/>
+    <CraftingSlot ingredient={CraftingItem.SOLAR_PANEL_LV} row='3' col='2'/>
+    <CraftingSlot ingredient={CraftingItem.SOLAR_PANEL_LV} row='3' col='3'/>
+  </Crafting>
+);
+
+export const RecipeSolarPanelHV = () => (
+  <Crafting output={CraftingItem.SOLAR_PANEL_HV}>
+    <CraftingSlot ingredient={CraftingItem.SOLAR_PANEL_MV} row='1' col='1'/>
+    <CraftingSlot ingredient={CraftingItem.SOLAR_PANEL_MV} row='1' col='2'/>
+    <CraftingSlot ingredient={CraftingItem.SOLAR_PANEL_MV} row='1' col='3'/>
+    <CraftingSlot ingredient={CraftingItem.SOLAR_PANEL_MV} row='2' col='1'/>
+    <CraftingSlot ingredient={CraftingItem.HV_TRANSFORMER_UPGRADE} row='2' col='2'/>
+    <CraftingSlot ingredient={CraftingItem.SOLAR_PANEL_MV} row='2' col='3'/>
+    <CraftingSlot ingredient={CraftingItem.SOLAR_PANEL_MV} row='3' col='1'/>
+    <CraftingSlot ingredient={CraftingItem.SOLAR_PANEL_MV} row='3' col='2'/>
+    <CraftingSlot ingredient={CraftingItem.SOLAR_PANEL_MV} row='3' col='3'/>
+  </Crafting>
+);
+
+Solar Panel covers produce energy during the day. They must be placed on top of the machine to work.
+
+| Type | Produced EU/t Day | Produced EU/t Night | Recipe |
+|:----:|:----:|:----:|:----:|
+| Solar Panel | 1 | 0 | <RecipeSolarPanel/> |
+| LV Solar Panel | 8 | 1 | <RecipeSolarPanelLV/> |
+| MV Solar Panel | 64 | 8 | <RecipeSolarPanelMV/> |
+| HV Solar Panel | 512 | 64 | <RecipeSolarPanelHV/> |
+
+### Heat Vents
+
+export const RecipeHeatVent = () => (
+  <Crafting output={CraftingItem.HEAT_VENT}>
+    <CraftingSlot ingredient={CraftingItem.IRON_BARS} row='1' col='1'/>
+    <CraftingSlot ingredient={CraftingItem.IRON_PLATE} row='1' col='2'/>
+    <CraftingSlot ingredient={CraftingItem.IRON_BARS} row='1' col='3'/>
+    <CraftingSlot ingredient={CraftingItem.IRON_PLATE} row='2' col='1'/>
+    <CraftingSlot ingredient={CraftingItem.ELECTRIC_MOTOR} row='2' col='2'/>
+    <CraftingSlot ingredient={CraftingItem.IRON_PLATE} row='2' col='3'/>
+    <CraftingSlot ingredient={CraftingItem.IRON_BARS} row='3' col='1'/>
+    <CraftingSlot ingredient={CraftingItem.IRON_PLATE} row='3' col='2'/>
+    <CraftingSlot ingredient={CraftingItem.IRON_BARS} row='3' col='3'/>
+  </Crafting>
+);
+
+export const RecipeComponentHeatVent = () => (
+  <Crafting output={CraftingItem.COMPONENT_HEAT_VENT}>
+    <CraftingSlot ingredient={CraftingItem.IRON_BARS} row='1' col='1'/>
+    <CraftingSlot ingredient={CraftingItem.TIN_PLATE} row='1' col='2'/>
+    <CraftingSlot ingredient={CraftingItem.IRON_BARS} row='1' col='3'/>
+    <CraftingSlot ingredient={CraftingItem.TIN_PLATE} row='2' col='1'/>
+    <CraftingSlot ingredient={CraftingItem.HEAT_VENT} row='2' col='2'/>
+    <CraftingSlot ingredient={CraftingItem.TIN_PLATE} row='2' col='3'/>
+    <CraftingSlot ingredient={CraftingItem.IRON_BARS} row='3' col='1'/>
+    <CraftingSlot ingredient={CraftingItem.TIN_PLATE} row='3' col='2'/>
+    <CraftingSlot ingredient={CraftingItem.IRON_BARS} row='3' col='3'/>
+  </Crafting>
+);
+
+export const RecipeReactorHeatVent = () => (
+  <Crafting output={CraftingItem.REACTOR_HEAT_VENT}>
+    <CraftingSlot ingredient={CraftingItem.COPPER_PLATE} row='1' col='1'/>
+    <CraftingSlot ingredient={CraftingItem.COPPER_PLATE} row='1' col='2'/>
+    <CraftingSlot ingredient={CraftingItem.COPPER_PLATE} row='1' col='3'/>
+    <CraftingSlot ingredient={CraftingItem.COPPER_PLATE} row='2' col='1'/>
+    <CraftingSlot ingredient={CraftingItem.HEAT_VENT} row='2' col='2'/>
+    <CraftingSlot ingredient={CraftingItem.COPPER_PLATE} row='2' col='3'/>
+    <CraftingSlot ingredient={CraftingItem.COPPER_PLATE} row='3' col='1'/>
+    <CraftingSlot ingredient={CraftingItem.COPPER_PLATE} row='3' col='2'/>
+    <CraftingSlot ingredient={CraftingItem.COPPER_PLATE} row='3' col='3'/>
+  </Crafting>
+);
+
+export const RecipeReactorHeatVent2 = () => (
+  <Crafting output={CraftingItem.REACTOR_HEAT_VENT}>
+    <CraftingSlot ingredient={CraftingItem.ALUMINIUM_PLATE} row='1' col='1'/>
+    <CraftingSlot ingredient={CraftingItem.IRON_BARS} row='1' col='2'/>
+    <CraftingSlot ingredient={CraftingItem.ALUMINIUM_PLATE} row='1' col='3'/>
+    <CraftingSlot ingredient={CraftingItem.IRON_BARS} row='2' col='1'/>
+    <CraftingSlot ingredient={CraftingItem.IRON_BARS} row='2' col='3'/>
+    <CraftingSlot ingredient={CraftingItem.ALUMINIUM_PLATE} row='3' col='1'/>
+    <CraftingSlot ingredient={CraftingItem.IRON_BARS} row='3' col='2'/>
+    <CraftingSlot ingredient={CraftingItem.ALUMINIUM_PLATE} row='3' col='3'/>
+  </Crafting>
+);
+
+export const RecipeAdvancedHeatVent = () => (
+  <Crafting output={CraftingItem.ADVANCED_HEAT_VENT}>
+    <CraftingSlot ingredient={CraftingItem.IRON_BARS} row='1' col='1'/>
+    <CraftingSlot ingredient={CraftingItem.HEAT_VENT} row='1' col='2'/>
+    <CraftingSlot ingredient={CraftingItem.IRON_BARS} row='1' col='3'/>
+    <CraftingSlot ingredient={CraftingItem.IRON_BARS} row='2' col='1'/>
+    <CraftingSlot ingredient={CraftingItem.DIAMOND} row='2' col='2'/>
+    <CraftingSlot ingredient={CraftingItem.IRON_BARS} row='2' col='3'/>
+    <CraftingSlot ingredient={CraftingItem.IRON_BARS} row='3' col='1'/>
+    <CraftingSlot ingredient={CraftingItem.HEAT_VENT} row='3' col='2'/>
+    <CraftingSlot ingredient={CraftingItem.IRON_BARS} row='3' col='3'/>
+  </Crafting>
+);
+
+export const RecipeOverclockedHeatVent = () => (
+  <Crafting output={CraftingItem.OVERCLOCKED_HEAT_VENT}>
+    <CraftingSlot ingredient={CraftingItem.GOLD_PLATE} row='1' col='2'/>
+    <CraftingSlot ingredient={CraftingItem.GOLD_PLATE} row='2' col='1'/>
+    <CraftingSlot ingredient={CraftingItem.REACTOR_HEAT_VENT} row='2' col='2'/>
+    <CraftingSlot ingredient={CraftingItem.GOLD_PLATE} row='2' col='3'/>
+    <CraftingSlot ingredient={CraftingItem.GOLD_PLATE} row='3' col='2'/>
+  </Crafting>
+);
+
+IC2 Heat Vents can be used as covers to slightly increase machine efficiency. They also require an unobstructed facing to work.
+
+| Type | Total EU decrease | Recipe |
+|:----:|:----:|:----:|
+| Heat Vent | 1,5% | <RecipeHeatVent/> |
+| Component Heat Vent | 1,5% | <RecipeComponentHeatVent/> |
+| Reactor Heat Vent | 1,5% | <RecipeReactorHeatVent/> <br/> <RecipeReactorHeatVent2/> |
+| Advanced Heat Vent | 3% | <RecipeAdvancedHeatVent/> |
+| Overclocked Heat Vent | 3% | <RecipeOverclockedHeatVent/> |
+
+### Redstone Covers
+
+| Type | Effect | Assembler Recipe
+|:----:|:----:|:----:|
+| Item Detector | Outputs redstone signal depending on stored items | 1x Weighted Pressure Plate (Heavy), 1x Iron/Aluminium Plate |
+| Liquid Detector | Outputs redstone signal depending on stored liquids | 1x Weighted Pressure Plate (Light), 1x Iron/Aluminium Plate |
+| EU Detector | Outputs redstone signal depending on stored energy | 1x EU-Reader, 1x Iron/Aluminium Plate |
+| Signalizer | Applies a constant redstone signal to the machine | 1x Redstone Torch, 1x Iron/Aluminium Plate |
+| Machine Controller | Allows enabling/disabling machines through redstone signal | 1x Lever, 1x Iron/Aluminium Plate |
+| Active Machine Detector | Outputs redstone signal if the machine has work | 1x Redstone Comparator, 1x Iron Plate <br/> OR 1x Aluminium Plate, 1x Redstone Torch |
+| Conductor | Throughputs the strongest redstone signal to the cover facing | 1x Redstone, 1x Iron Plate |
